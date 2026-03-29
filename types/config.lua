@@ -4,7 +4,7 @@
 
 ---@alias AvailableInventories 'ox_inventory' | 'qb-inventory' | 'origen_inventory' | 'tgiann-inventory'
 
----@alias AvailablePhones 'lb-phone' | 'yseries' | 'yphone' | 'yflip' | 'npwd' | 'roadphone' | '17mov_phone'
+---@alias AvailablePhones 'lb-phone' | 'yseries' | 'yphone' | 'yflip' | 'npwd' | 'roadphone' | '17mov_phone' | 'gksphone'
 
 ---@alias AvailableTargets 'ox_target' | 'qb-target' | 'sleepless_interact'
 
@@ -14,7 +14,7 @@
 
 ---@alias AvailableMinigames 'prp-minigames'
 
----@alias AvailableVehicleKeys 'cd_garage' | 'mVehicle' | 'okokGarage' | 'qb-vehiclekeys' | 'qbx_vehiclekeys' | 'vehicles_keys' | 'wasabi_carlock' | 'nd_core' | 'mrnewbvehiclekeys'
+---@alias AvailableVehicleKeys 'cd_garage' | 'mVehicle' | 'okokGarage' | 'qb-vehiclekeys' | 'qbx_vehiclekeys' | 'vehicles_keys' | 'wasabi_carlock' | 'nd_core' | 'mrnewbvehiclekeys' | 'Renewed-Vehiclekeys'
 
 ---@alias VehicleClasses 'X' | 'S' | 'A' | 'B' | 'C' | 'D' | 'E' | 'EV1' | 'EV2'
 ---@alias VehicleTypes 'car' | 'bike' | 'quadbike' | 'bicycle' | 'heli' | 'plane' | 'boat' | 'trailer' | 'train' | 'blimp' | 'submarine' | 'submarinecar' | 'amphibious_quadbike' | 'amphibious_automobile'
@@ -27,4 +27,4 @@
 ---@field type VehicleTypes
 ---@field inBoosting boolean
 
----@alias AvailableVehicleFuel 'ox_fuel' | 'LegacyFuel' | 'cdn-fuel' | 'lc_fuel' | 'qb-fuel'
+---@alias AvailableVehicleFuel 'ox_fuel' | 'LegacyFuel' | 'cdn-fuel' | 'lc_fuel' | 'qb-fuel' | 'Renewed-Fuel'

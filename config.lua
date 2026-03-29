@@ -36,6 +36,7 @@ BridgeConfig.Inventory = "ox_inventory"
         - npwd
         - roadphone
         - 17mov_phone
+        - gksphone
 ]]
 ---@type AvailablePhones
 BridgeConfig.Phone = "lb-phone"
@@ -91,9 +92,10 @@ BridgeConfig.Dispatch = "ps-dispatch"
         - wasabi_carlock
         - nd_core
         - mrnewbvehiclekeys
+        - Renewed-Vehiclekeys
 ]]
 ---@type AvailableVehicleKeys
-BridgeConfig.VehicleKeys = "qbx_vehiclekeys"
+BridgeConfig.VehicleKeys = "Renewed-Vehiclekeys"
 
 --[[
     AvailableVehicleFuel Resources:
@@ -102,6 +104,7 @@ BridgeConfig.VehicleKeys = "qbx_vehiclekeys"
         - cdn-fuel
         - lc_fuel
         - qb-fuel
+        - Renewed-Fuel
 ]]
 ---@type AvailableVehicleFuel
 BridgeConfig.VehicleFuel = "ox_fuel"
