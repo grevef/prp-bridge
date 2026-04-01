@@ -26,6 +26,8 @@
 ---@field clearPartyUuid fun() Clears the stored party UUID when the party is destroyed
 ---@field setLocked fun(lockedState: boolean) Sets the locked state of the group
 ---@field isLocked fun(): boolean Checks if the group is currently locked
+---@field getPendingInvites fun(): table<string, string> Returns pending invites { [inviteUuid] = targetSrc }
+---@field transferLeadership fun(newLeaderSrc: number | string): boolean Transfers leadership to another member
 
 local function generateUUID()
     local template = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx"
@@ -239,6 +241,8 @@ local function initGroupObject(data)
     ---@param activity { activityId: string, activityName: string }
     public.setActivity = function(activity)
         private.activity = activity
+
+        TriggerEvent("prp-bridge:server:groupActivityChanged", private.uuid, activity)
     end
 
     public.getActivity = function()
@@ -247,6 +251,8 @@ local function initGroupObject(data)
 
     public.clearActivity = function()
         private.activity = nil
+
+        TriggerEvent("prp-bridge:server:groupActivityChanged", private.uuid, nil)
     end
 
     ---@param eventName string
@@ -284,11 +290,13 @@ local function initGroupObject(data)
             end
         end
 
+        local memberPlayerIds = public.getMembersPlayerIds()
+
         for _, memberData in pairs(private.members) do
             memberToGroupMap[tostring(memberData.identifier)] = nil
         end
 
-        TriggerEvent("prp-bridge:server:groupDisbanded", private.uuid)
+        TriggerEvent("prp-bridge:server:groupDisbanded", private.uuid, memberPlayerIds)
 
         groups[private.uuid] = nil
 
@@ -307,6 +315,16 @@ local function initGroupObject(data)
 
     public.toggleInviting = function()
         private.isInviting = not private.isInviting
+
+        TriggerEvent("prp-bridge:server:groupSettingsChanged", private.uuid, {
+            isInviting = private.isInviting,
+            isLocked = private.isLocked,
+        })
+    end
+
+    ---@return table<string, string> { [inviteUuid] = targetSrc }
+    public.getPendingInvites = function()
+        return private.invites
     end
 
     ---@param inviteUuid string
@@ -404,11 +422,33 @@ local function initGroupObject(data)
                 bridge.fw.notify(memberData.src, "inform", private.isLocked and locale("GROUP_LOCKED") or locale("GROUP_UNLOCKED"))
             end
         end
+
+        TriggerEvent("prp-bridge:server:groupSettingsChanged", private.uuid, {
+            isInviting = private.isInviting,
+            isLocked = private.isLocked,
+        })
     end
 
     ---@return boolean
     public.isLocked = function()
         return private.isLocked
+    end
+
+    ---@param newLeaderSrc number | string
+    ---@return boolean
+    public.transferLeadership = function(newLeaderSrc)
+        if not public.isSrcAMember(newLeaderSrc) then
+            return false
+        end
+
+        local success = public.setLeader(newLeaderSrc)
+        if not success then
+            return false
+        end
+
+        TriggerEvent("prp-bridge:server:groupLeaderChanged", private.uuid, newLeaderSrc)
+
+        return true
     end
 
     groups[private.uuid] = public
