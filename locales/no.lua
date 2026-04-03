@@ -86,7 +86,7 @@
     "SET_POLICE_POWER": "Sett ekstra politistyrke for UniQueue",
     "POLICE_POWER_AMOUNT": "Mengde politistyrke som skal settes",
     "POLICE_POWER_SET": "Satte ekstra politistyrke via kommando til: %d",
-    "GROUP_HAS_NO_PARTY_IN_UNIQUEUE": "Gruppen har ingen opprettet gruppe i UniQueue.",
+    "GROUP_HAS_NO_PARTY_IN_UNIQUEUE": "Gruppen har ingen gruppe opprettet i UniQueue.",
     "QUEUE_NOT_FOUND_2": "Den angitte køen ble ikke funnet.",
 
     "COMMAND_ADD_ALLOWLIST_DESC": "Legger til en whitelist på en spillers karakter",
@@ -128,5 +128,15 @@
     "FAILED_TO_REMOVE_CASE_FROM_INVENTORY_ERROR": "Kunne ikke fjerne kassen fra inventaret.",
     "NO_CACHED_WINNINGS_FOUND_ERROR": "Ingen lagrede gevinster ble funnet.",
     "CASE_OPENING_SPAM_ERROR": "Ikke spam kasseåpning, vent litt før du prøver igjen.",
-    "CASE_OPENING_ITEM_ERROR": "Kunne ikke åpne kasse - feil: %s"
+    "CASE_OPENING_ITEM_ERROR": "Kunne ikke åpne kasse - feil: %s",
+
+    "ui": {
+        "cancel": "Avbryt",
+        "yes": "Ja",
+        "time_left": "TID IGJEN",
+        "open_case": "ÅPNE KASSE",
+        "press": "Trykk",
+        "to_close": "for å lukke",
+        "to_open": "for å åpne"
+    }
 }
