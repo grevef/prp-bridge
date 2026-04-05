@@ -129,5 +129,14 @@
     "FAILED_TO_REMOVE_CASE_FROM_INVENTORY_ERROR": "Inventory se case hatane mein fail ho gaya.",
     "NO_CACHED_WINNINGS_FOUND_ERROR": "Koi cached winnings nahi mili.",
     "CASE_OPENING_SPAM_ERROR": "Case opening spam na karein, thoda wait karke phir se try karein.",
-    "CASE_OPENING_ITEM_ERROR": "Case kholne mein asamarth - error: %s"
+    "CASE_OPENING_ITEM_ERROR": "Case kholne mein asamarth - error: %s",
+    "ui": {
+        "cancel": "Rahne Do",
+        "yes": "Haan",
+        "time_left": "SAMAY BAKI",
+        "open_case": "CASE KHOLO",
+        "press": "Dabao",
+        "to_close": "Close karne ke liye",
+        "to_open": "Open karne ke liye"
+    }
 }
